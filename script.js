@@ -307,6 +307,35 @@ const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
     });
   });
 
+  // Tap the last big heart → it sends her a flying kiss 😘 (visual only, nothing counted)
+  const bigHeart = document.getElementById('big-heart');
+  const KISS_EMOJI = ['😘', '💋'];
+  let kissFlip = 0;
+
+  function flyKiss(x, y) {
+    const k = document.createElement('span');
+    k.className = 'flying-kiss';
+    k.textContent = KISS_EMOJI[kissFlip++ % KISS_EMOJI.length]; // always a kiss: 😘, 💋, 😘, 💋…
+    k.style.left = x + 'px';
+    k.style.top = y + 'px';
+    k.style.fontSize = (22 + Math.random() * 22) + 'px';
+    k.style.setProperty('--dx', ((Math.random() - 0.5) * 260) + 'px');
+    k.style.setProperty('--dy', (-150 - Math.random() * 150) + 'px');
+    document.body.appendChild(k);
+    setTimeout(() => k.remove(), 1500);
+  }
+
+  if (bigHeart) {
+    bigHeart.addEventListener('click', (e) => {
+      const x = e.clientX || window.innerWidth / 2;
+      const y = e.clientY || window.innerHeight / 2;
+      for (let i = 0; i < 6; i++) {
+        flyKiss(x + (Math.random() - 0.5) * 120, y + (Math.random() - 0.5) * 60);
+      } // a shower of 6 kisses per tap, always 😘💋
+      burstAt(x, y, 5); // just a few sparkle hearts around the kisses
+    });
+  }
+
   /* ---------- Init ---------- */
   applySettings();
   handlePhotoFallbacks();
