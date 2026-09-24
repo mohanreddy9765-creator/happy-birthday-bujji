@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Love ❤️</title>
+  <meta name="description" content="A romantic birthday surprise for the most special person." />
+
+  <!-- ============================================================
+       ROMANTIC BIRTHDAY WEBSITE FOR YOUR GIRLFRIEND ❤️
+       ------------------------------------------------------------
+       HOW TO EDIT (super easy):
+       1. Open script.js and edit the 6 lines at the very top:
+          GIRLFRIEND_NAME, MY_NAME, BIRTHDAY_DATE,
+          PHOTO_1, PHOTO_2, PHOTO_3, MUSIC_FILE
+       2. Put your photos next to index.html
+          (or change PHOTO_1/2/3 to any image path)
+       3. Put your song next to index.html
+          (or change MUSIC_FILE to any mp3 path)
+       4. Just double-click index.html to open it. No server needed.
+       ============================================================ -->
+
+  <!-- Beautiful romantic fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Soft glowing background layers -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="glow glow-1" aria-hidden="true"></div>
+  <div class="glow glow-2" aria-hidden="true"></div>
+  <div class="glow glow-3" aria-hidden="true"></div>
+
+  <!-- Floating particles + hearts (filled by JavaScript) -->
+  <div id="particles" aria-hidden="true"></div>
+  <div id="floating-hearts" aria-hidden="true"></div>
+  <div id="confetti-layer" aria-hidden="true"></div>
+
+  <!-- ================= 1. LANDING SECTION ================= -->
+  <header id="landing" class="section landing">
+    <p class="eyebrow reveal">✨ <span data-birthday-date>DD Month YYYY</span> ✨</p>
+
+    <h1 class="landing-title reveal">
+      Happy Birthday,<br />
+      <span class="hearts">❤️ <span data-girlfriend-name>Her Name</span> ❤️</span>
+    </h1>
+
+    <p class="landing-subtitle reveal">
+      Today is all about the most special person in my life.
+    </p>
+
+    <button id="surprise-btn" class="btn btn-glow reveal">
+      Open Your Surprise 💝
+    </button>
+
+    <p class="landing-hint reveal">I made this only for you, with all my heart</p>
+
+    <div class="scroll-down" aria-hidden="true">❤️</div>
+  </header>
+
+  <!-- ================= 2. SURPRISE SECTION ================= -->
+  <!-- Hidden at first. Appears with animation + confetti when button is clicked -->
+  <section id="surprise" class="section hidden">
+    <div class="card glass reveal">
+      <div class="card-heart" aria-hidden="true">❤️</div>
+      <h2 class="section-title">Happy Birthday, my love ❤️</h2>
+      <div class="divider" aria-hidden="true">✨ ─── ❤️ ─── ✨</div>
+      <p class="love-text">
+        You make my ordinary days feel special.<br /><br />
+        Your smile, your presence, and every little moment with you mean so much to me.<br /><br />
+        I hope this birthday brings you endless happiness, beautiful memories, and everything your heart wishes for.<br /><br />
+        I'm really lucky to have you in my life. ❤️
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= 3. PHOTO GALLERY ================= -->
+  <!-- To change photos: edit PHOTO_1, PHOTO_2, PHOTO_3 at top of script.js -->
+  <section id="gallery" class="section hidden">
+    <p class="eyebrow reveal">Us, always 📸</p>
+    <h2 class="section-title reveal">Beautiful Memories With You</h2>
+    <p class="section-subtitle reveal">Every second with you feels like magic.</p>
+
+    <div class="gallery">
+      <figure class="photo-card reveal">
+        <div class="photo-wrap">
+          <img data-photo="1" src="IMG-20260703-WA0049.jpg" alt="Beautiful memory 1" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ My favourite smile ❤️</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal">
+        <div class="photo-wrap">
+          <img data-photo="2" src="IMG-20260703-WA0057.jpg" alt="Beautiful memory 2" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ My favourite person ❤️</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal">
+        <div class="photo-wrap">
+          <img data-photo="3" src="WhatsApp Image 2026-09-24 at 9.20.58 PM.jpeg" alt="Beautiful memory 3" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ My favourite memory ❤️</figcaption>
+      </figure>
+    </div>
+
+    <p class="gallery-caption reveal">Every picture holds a beautiful memory with you ❤️</p>
+  </section>
+
+  <!-- ================= 4. LOVE MESSAGE (typewriter) ================= -->
+  <section id="love-message" class="section hidden">
+    <div class="letter glass reveal">
+      <p class="eyebrow">Just for you</p>
+      <h2 class="section-title">A Little Message For You 💌</h2>
+      <div class="divider" aria-hidden="true">❤️ ─── ✨ ─── ❤️</div>
+      <!-- Typewriter text is typed here by script.js -->
+      <p id="typewriter-text" class="typewriter"></p>
+      <p class="letter-sign">— forever yours ❤️</p>
+    </div>
+  </section>
+
+  <!-- ================= 5. FINAL SECTION ================= -->
+  <section id="finale" class="section hidden">
+    <div class="finale-box glass reveal">
+      <div class="finale-glow" aria-hidden="true"></div>
+      <h2 class="finale-title">
+        Once again, Happy Birthday,<br />
+        <span data-girlfriend-name>Her Name</span> ❤️
+      </h2>
+      <p class="finale-love">
+        With all my love,<br />
+        <span class="signature" data-my-name>Your Name</span>
+      </p>
+      <div class="big-heart" aria-hidden="true">❤️</div>
+    </div>
+
+    <footer class="footer">
+      <p>Made with ❤️ only for you</p>
+    </footer>
+  </section>
+
+  <!-- ================= 6. MUSIC (no autoplay) ================= -->
+  <!-- To change song: edit MUSIC_FILE at top of script.js, put mp3 next to index.html -->
+  <button id="music-btn" class="music-btn" aria-pressed="false" aria-label="Play or stop our song">
+    <span id="music-icon" aria-hidden="true">🎵</span>
+    <span id="music-label">Play Our Song</span>
+  </button>
+  <audio id="bg-music" loop preload="auto">
+    <!-- EDIT MUSIC HERE: replace "birthday-love/music/music.mp3" with your song file name -->
+    <source id="music-source" src="birthday-love/music/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
