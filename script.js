@@ -14,8 +14,8 @@
    ============================================================ */
 
 const GIRLFRIEND_NAME = "Bujji";        // <-- EDIT: her name, e.g. "Aisha"
-const MY_NAME         = "Mohan";       // <-- EDIT: your name, e.g. "Rohan"
-const BIRTHDAY_DATE   = "4 September";   // <-- EDIT: her birthday, e.g. "14 February 2026"
+const MY_NAME         = "BAVA";       // <-- EDIT: your name, e.g. "Rohan"
+const BIRTHDAY_DATE   = "24 September";   // <-- EDIT: her birthday, e.g. "14 February 2026"
 
 const PHOTO_1 = "IMG-20260703-WA0049.jpg";              // <-- EDIT: path to 1st photo
 const PHOTO_2 = "IMG-20260703-WA0057.jpg";              // <-- EDIT: path to 2nd photo
