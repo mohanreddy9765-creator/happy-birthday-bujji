@@ -79,14 +79,16 @@
   </section>
 
   <!-- ================= 3. PHOTO GALLERY ================= -->
-  <!-- To change photos: edit PHOTO_1, PHOTO_2, PHOTO_3 at top of script.js -->
+  <!-- To add MORE photos: put photo4.jpg / photo5.jpg / photo6.jpg / photo7.jpg next to
+       index.html and set PHOTO_4 / PHOTO_5 / PHOTO_6 / PHOTO_7 at top of script.js.
+       Slots stay hidden until you add them. Previous photos untouched. -->
   <section id="gallery" class="section hidden">
     <p class="eyebrow reveal">Us, always 📸</p>
     <h2 class="section-title reveal">Beautiful Memories With You</h2>
     <p class="section-subtitle reveal">Every second with you feels like magic.</p>
 
     <div class="gallery">
-      <figure class="photo-card reveal">
+      <figure class="photo-card reveal" data-tap-photo>
         <div class="photo-wrap">
           <img data-photo="1" src="IMG-20260703-WA0049.jpg" alt="Beautiful memory 1" loading="lazy" />
           <span class="photo-shine" aria-hidden="true"></span>
@@ -94,7 +96,7 @@
         <figcaption>❤️ My favourite smile ❤️</figcaption>
       </figure>
 
-      <figure class="photo-card reveal">
+      <figure class="photo-card reveal" data-tap-photo>
         <div class="photo-wrap">
           <img data-photo="2" src="IMG-20260703-WA0057.jpg" alt="Beautiful memory 2" loading="lazy" />
           <span class="photo-shine" aria-hidden="true"></span>
@@ -102,12 +104,45 @@
         <figcaption>❤️ My favourite person ❤️</figcaption>
       </figure>
 
-      <figure class="photo-card reveal">
+      <figure class="photo-card reveal" data-tap-photo>
         <div class="photo-wrap">
           <img data-photo="3" src="photo3.jpg" alt="Beautiful memory 3" loading="lazy" />
           <span class="photo-shine" aria-hidden="true"></span>
         </div>
         <figcaption>❤️ My favourite memory ❤️</figcaption>
+      </figure>
+
+      <!-- Extra photos (optional): set PHOTO_4/5/6 in script.js + upload the files. Hidden until you add them. -->
+      <figure class="photo-card reveal photo-extra hidden" data-tap-photo>
+        <div class="photo-wrap">
+          <img data-photo="4" src="photo.jpg" alt="Beautiful memory 4" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ More us, more love ❤️</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal photo-extra hidden" data-tap-photo>
+        <div class="photo-wrap">
+          <img data-photo="5" src="phjotoWhatsApp Image 2026-09-24 at 10.32.19 PM.jpeg" alt="Beautiful memory 5" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ You + me, always ❤️</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal photo-extra hidden" data-tap-photo>
+        <div class="photo-wrap">
+          <img data-photo="6" src="WhatsApp Image 2026-09-24 at 10.20.56 PM (1).jpeg" alt="Beautiful memory 6" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ My whole heart ❤️</figcaption>
+      </figure>
+
+      <figure class="photo-card reveal photo-extra hidden" data-tap-photo>
+        <div class="photo-wrap">
+          <img data-photo="7" src="photo 7.jpeg" alt="Beautiful memory 7" loading="lazy" />
+          <span class="photo-shine" aria-hidden="true"></span>
+        </div>
+        <figcaption>❤️ Forever & always ❤️</figcaption>
       </figure>
     </div>
 
@@ -126,7 +161,25 @@
     </div>
   </section>
 
-  <!-- ================= 5. FINAL SECTION ================= -->
+  <!-- ================= 5. TAP THE LOVE (interactive) ================= -->
+  <section id="reasons" class="section hidden">
+    <p class="eyebrow reveal">Tap to reveal 👆</p>
+    <h2 class="section-title reveal">3 Reasons I Love You 💖</h2>
+    <p class="section-subtitle reveal">Go on, tap each card. Each one is true.</p>
+    <div class="reasons-grid">
+      <button class="reason-card glass reveal" data-reason="Your smile fixes my worst days in one second 🥰">
+        <span class="reason-num">1</span><span class="reason-front">Tap me 🙈</span>
+      </button>
+      <button class="reason-card glass reveal" data-reason="You make ordinary days feel like festivals ✨❤️">
+        <span class="reason-num">2</span><span class="reason-front">Tap me 🙈</span>
+      </button>
+      <button class="reason-card glass reveal" data-reason="Because home is wherever you are 🏠❤️">
+        <span class="reason-num">3</span><span class="reason-front">Tap me 🙈</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= 6. FINAL SECTION ================= -->
   <section id="finale" class="section hidden">
     <div class="finale-box glass reveal">
       <div class="finale-glow" aria-hidden="true"></div>

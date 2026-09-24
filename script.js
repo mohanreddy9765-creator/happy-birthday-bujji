@@ -21,6 +21,13 @@ const PHOTO_1 = "IMG-20260703-WA0049.jpg";              // <-- EDIT: path to 1st
 const PHOTO_2 = "IMG-20260703-WA0057.jpg";              // <-- EDIT: path to 2nd photo
 const PHOTO_3 = "photo3.jpg";              // <-- EDIT: path to 3rd photo
 
+// OPTIONAL extra photos — add photo4.jpg / photo5.jpg / photo6.jpg / photo7.jpg
+// next to index.html and put their names here. Leave as "" to hide that slot.
+const PHOTO_4 = "photo.jpg";              // <-- OPTIONAL: e.g. "photo4.jpg"
+const PHOTO_5 = "phjotoWhatsApp Image 2026-09-24 at 10.32.19 PM.jpeg";              // <-- OPTIONAL: e.g. "photo5.jpg"
+const PHOTO_6 = "WhatsApp Image 2026-09-24 at 10.20.56 PM (1).jpeg";              // <-- OPTIONAL: e.g. "photo6.jpg"
+const PHOTO_7 = "photo 7.jpeg";              // <-- OPTIONAL: e.g. "photo7.jpg"
+
 const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
 
 /* ============================================================
@@ -44,9 +51,17 @@ const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
     });
     document.title = 'Happy Birthday, ' + GIRLFRIEND_NAME + ' ❤️';
 
-    const photos = [PHOTO_1, PHOTO_2, PHOTO_3];
+    const photos = [PHOTO_1, PHOTO_2, PHOTO_3, PHOTO_4, PHOTO_5, PHOTO_6, PHOTO_7];
     document.querySelectorAll('[data-photo]').forEach((img, i) => {
-      img.src = photos[i] || photos[0];
+      const src = photos[i];
+      const card = img.closest('.photo-card');
+      if (!src) {
+        // No photo configured for this slot → keep it hidden
+        if (card) card.classList.add('hidden');
+        return;
+      }
+      if (card) card.classList.remove('hidden');
+      img.src = src;
       img.alt = 'Beautiful memory with ' + GIRLFRIEND_NAME + ' ❤️';
     });
 
@@ -59,7 +74,7 @@ const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
 
   /* ---------- 2. Photo fallback (pretty placeholder if photo missing) ---------- */
   function handlePhotoFallbacks() {
-    const photos = [PHOTO_1, PHOTO_2, PHOTO_3];
+    const photos = [PHOTO_1, PHOTO_2, PHOTO_3, PHOTO_4, PHOTO_5, PHOTO_6, PHOTO_7];
     document.querySelectorAll('[data-photo]').forEach((img, idx) => {
       img.addEventListener('error', function onErr() {
         img.removeEventListener('error', onErr);
@@ -166,13 +181,33 @@ const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
     }
   }
 
+  /* Burst hearts exactly where she taps (extra exciting 💖) */
+  function burstAt(x, y, n) {
+    const layer = confettiLayer || document.body;
+    for (let i = 0; i < (n || 14); i++) {
+      const c = document.createElement('span');
+      c.className = 'confetti-piece';
+      c.style.position = 'fixed';
+      c.style.left = x + 'px';
+      c.style.top = y + 'px';
+      c.textContent = CONFETTI[Math.floor(Math.random() * CONFETTI.length)];
+      c.style.fontSize = (14 + Math.random() * 22) + 'px';
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 60 + Math.random() * 180;
+      c.style.setProperty('--dx', Math.cos(angle) * dist + 'px');
+      c.style.setProperty('--dy', Math.sin(angle) * dist - 80 + 'px');
+      layer.appendChild(c);
+      setTimeout(() => c.remove(), 2000);
+    }
+  }
+
   /* ---------- 6. Reveal surprise sections ---------- */
   const surpriseBtn = document.getElementById('surprise-btn');
 
   if (surpriseBtn) {
     surpriseBtn.addEventListener('click', () => {
       // Show hidden sections
-      document.querySelectorAll('#surprise, #gallery, #love-message, #finale')
+      document.querySelectorAll('#surprise, #gallery, #love-message, #reasons, #finale')
         .forEach((s) => s.classList.remove('hidden'));
 
       observeReveals();
@@ -244,6 +279,33 @@ const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
       if (musicLabel && audio.paused) musicLabel.textContent = 'Add ' + MUSIC_FILE;
     });
   }
+
+  /* ---------- 9. TAP interactions: gentle hearts on photo tap + reason cards 💖 ---------- */
+  // NOTE: no popups, no counters — tapping a photo only showers a few hearts
+  // where she taps. Kiss counter removed: counts only live on her phone and
+  // can never reach you without a backend, so it was taken out.
+
+  // Tap a photo → cute pop + small heart shower at her finger (photo stays as-is)
+  document.querySelectorAll('[data-tap-photo]').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      card.classList.remove('tap-pop');
+      void card.offsetWidth; // restart animation
+      card.classList.add('tap-pop');
+      burstAt(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 12);
+    });
+  });
+
+  // Tap reason cards → reveal the love note + mini celebration
+  document.querySelectorAll('.reason-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      if (card.classList.contains('revealed')) return;
+      card.classList.add('revealed');
+      const msg = card.getAttribute('data-reason');
+      const front = card.querySelector('.reason-front');
+      if (front && msg) front.textContent = msg;
+      burstAt(e.clientX || window.innerWidth / 2, e.clientY || window.innerHeight / 2, 14);
+    });
+  });
 
   /* ---------- Init ---------- */
   applySettings();
