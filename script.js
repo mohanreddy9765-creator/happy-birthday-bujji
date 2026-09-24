@@ -19,7 +19,7 @@ const BIRTHDAY_DATE   = "4 September";   // <-- EDIT: her birthday, e.g. "14 Feb
 
 const PHOTO_1 = "IMG-20260703-WA0049.jpg";              // <-- EDIT: path to 1st photo
 const PHOTO_2 = "IMG-20260703-WA0057.jpg";              // <-- EDIT: path to 2nd photo
-const PHOTO_3 = "WhatsApp Image 2026-09-24 at 9.20.58 PM.jpeg";              // <-- EDIT: path to 3rd photo
+const PHOTO_3 = "photo3.jpg";              // <-- EDIT: path to 3rd photo
 
 const MUSIC_FILE = "birthday-love/music/music.mp3";         // <-- EDIT: path to your romantic song
 
