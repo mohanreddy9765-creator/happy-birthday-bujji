@@ -21,7 +21,7 @@ const PHOTO_1 = "IMG-20260703-WA0049.jpg";              // <-- EDIT: path to 1st
 const PHOTO_2 = "IMG-20260703-WA0057.jpg";              // <-- EDIT: path to 2nd photo
 const PHOTO_3 = "photo3.jpg";              // <-- EDIT: path to 3rd photo
 
-const MUSIC_FILE = "birthday-love/music/music.mp3";         // <-- EDIT: path to your romantic song
+const MUSIC_FILE = "music.mp3";         // <-- EDIT: path to your romantic song
 
 /* ============================================================
    You do NOT need to edit anything below this line.
